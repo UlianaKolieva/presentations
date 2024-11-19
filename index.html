@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Оркестраторы контейнеров (Kubernetes vs Docker Swarm)</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			*{text-align: left;}
+			img{border-radius:20px;}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h3>Оркестраторы контейнеров (Kubernetes vs Docker Swarm)</h3>
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h4>Оркестратор</h4>
+					<img src="img/ork.png" style="border-radius:20px;">
+					<p>Автоматизирует управление жизненным циклом микросервисных приложений</p>
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4>Инструменты оркестрации контейнеров требуются, когда вам нужно:</h4>
+					<br>
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;float:left;width:50%;">
+						<ul style="font-size: 26px; color: rgb(31, 31, 31)">
+							<li>управлять контейнерами и масштабировать их в нескольких инстансах; </li>
+							<li>запускать множество различных контейнерных приложений;</li>
+							<li>запускать разные версии приложений одновременно;</li>
+							<li>обеспечивать непрерывность службы приложений в случае сбоя сервера, запустив несколько инстансов (реплик) контейнера;</li>
+							
+						</ul>
+					</div><img src="img/upr.gif" style="float:left;width:40%;margin-left:20px;">
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4>Инструменты оркестрации контейнеров требуются, когда вам нужно:</h4>
+					<br>
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;float:left;width:50%;">
+						<ul style="font-size: 26px; color: rgb(31, 31, 31)">
+							
+							<li>запускать несколько инстансов приложения в разных географических регионах;</li>
+							<li>максимально использовать несколько инстансов серверов для составления бюджета;</li>
+							<li>запускать большие контейнерные приложения, состоящие из тысяч различных микросервисов.</li>
+						</ul>
+					</div><img src="img/mcrs.webp" style="float:left;width:40%;margin-left:20px;">
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h4>Docker Swarm</h4>
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;margin:10px;float:left;width:25%;font-size: 26px; color: rgb(31, 31, 31)">
+						Контролирует состояние задач и автоматически перезапускает их в случае сбоев или падений.
+						<img src="img/3d-checklist.avif" style="width:65%;">
+					</div>
+					<div style="background-color: #c3c0f3;border-radius: 20px;padding:30px;margin:10px;float:left;width:25%;font-size: 26px; color: rgb(31, 31, 31)">
+						Приложение развертывается как сервис, который состоит из одной или нескольких задач. Сервисы можно масштабировать, изменяя количество задач
+					</div>
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;margin:10px;float:left;width:25%;font-size: 26px; color: rgb(31, 31, 31)">
+						Распределяет входящий трафик между контейнерами сервиса, обеспечивая равномерное распределение нагрузки.
+					</div>
+					
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h4>Kubernetes</h4>
+					<img src="img/kbrn-strctr.png">
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h3>Различия Docker Swarm и Kubernetes</h3>
+					<img src="img/kbrnlogo.png" ><img src="img/swarm.png" style="float:right;">
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;margin:10px;float:left;width:41%;font-size: 24px; color: rgb(31, 31, 31)">
+						<h5 style="color:rgb(23, 23, 24);font-size: 28px;">Docker Swarm</h5>
+						<p style="color:red;">- Сложная архитектура</p>
+						<p style="color:red;">- Установка требует немало усилий, так как нужно настроить множество компонентов и конфигураций</p>
+						<p style="color:green;">+ Подходит для управления крупномасштабными кластерами</p>
+						<p style="color:green;">+ Поддерживает интеграцию с большим количеством сторонних решений</p>
+					</div>
+					<div style="background-color: #c3c0f3;border-radius: 20px;padding:30px;margin:10px;float:left;width:41%;font-size: 24px; color: rgb(31, 31, 31)">
+						<h5 style="color:rgb(23, 23, 24);font-size: 28px;">Kubernetes</h5>
+						<p style="color:green;">+ Более простая архитектура, легко интегрируется с Docker</p>
+						<p style="color:green;">+ Легко настраивается</p>
+						<p style="color:red;">- Справляется только с меньшими кластерами и не обладает столь мощными инструментами для масштабирования</p>
+						<p style="color:red;">- Поддержка сторонних инструментов и решений менее развита</p>
+					</div>
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h4>Когда использовать Kubernetes</h4>
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;margin:10px;float:left;width:30%;font-size: 24px; color: rgb(31, 31, 31)">
+						<p>- Если ваше приложение состоит из множества микросервисов</p>
+						<p>- Если вам нужны строгие меры безопасности и детальное управление доступом</p>
+						<p>- Если вы используете облачные платформы</p>
+					</div>
+					<img src="img/obl.jpg" style="float:right;width: 60%">
+				</section>
+				<section data-background-transition="slide" data-background="img/bg1.jpg">
+					<h4>Кому подойдет Docker Swarm</h4>
+					<div style="background-color: aliceblue;border-radius: 20px;padding:30px;margin:10px;float:left;width:41%;font-size: 24px; color: rgb(31, 31, 31)">
+						<p>- Небольшим проектам, где важна скорость развертывания и простота управления</p>
+						<p>- Небольшим командам, в которых нет выделенных специалистов по DevOps</p>
+						<p>- Проектам, где все узлы и ресурсы находятся в пределах одного дата-центра</p>
+					</div>
+					<img src="img/giphy.webp" style="float:right;">
+				</section>
+			</div>
+		</div>
+<iframe src="https://giphy.com/embed/gDPxwdP6SKFnsWDJ2u" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/typography-bug-feature-gDPxwdP6SKFnsWDJ2u"></a></p>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				//view: 'scroll',
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
